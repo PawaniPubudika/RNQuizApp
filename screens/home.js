@@ -1,6 +1,5 @@
 import React from 'react';
 import { View ,Button,Image,StyleSheet,Text} from 'react-native';
-import { preventAutoHide } from 'expo-splash-screen';
 
 export default function Home({navigation}){
 
@@ -15,7 +14,7 @@ return(
        <View style={{flex: 1, flexDirection: 'column'}}>
         <View style={styles.countview1}></View>
         <View style={styles.countview2}>
-        <Button style={styles.java_butt} title='Start the quiz' onPress={pressHandler}/> 
+        <Button style={styles.java_butt} title='Start' onPress={pressHandler}/> 
         </View>
         </View>
         
@@ -29,9 +28,6 @@ const styles = StyleSheet.create({
         width:'100%',
         height:'45%',
         position:'relative',
-       
-       
-        // margin:preventAutoHide,
       },
       
     
@@ -55,7 +51,7 @@ const styles = StyleSheet.create({
         width: '50%',
         height: 100,
         position:'relative',
-        left:90,
+        left:'25%',
        },
 
 
