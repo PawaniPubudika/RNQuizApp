@@ -3,7 +3,7 @@ import { View ,Text,StyleSheet, Button,Alert} from 'react-native';
 import React,{useState} from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
-import { color } from 'react-native-reanimated';
+// import { color } from 'react-native-reanimated';
 export default function Javaquiz(){
 
   const [details,setDetails]=useState([
@@ -54,7 +54,10 @@ export default function Javaquiz(){
           onPress: () => console.log('Cancel Pressed'),
           style: 'cancel'
         },
-        { text: 'OK', onPress: () => console.log('OK Pressed') }
+        { text: 'OK', onPress: () => count=0,
+         
+         
+      }
       ],
       { cancelable: false }
     );
