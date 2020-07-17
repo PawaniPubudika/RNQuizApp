@@ -1,19 +1,19 @@
 import React from 'react';
-import { View ,Button,Image,StyleSheet,Text} from 'react-native';
+import { View ,Button,Image,StyleSheet} from 'react-native';
+import {responsiveHeight,responsiveWidth,responsiveFontSize} from "react-native-responsive-dimensions";
 
 export default function Home({navigation}){
-
-    const pressHandler=()=>{
+const pressHandler=()=>{
         navigation.navigate('Javaquiz');
     }
 
     
 return(
     <View>
-       <Image style={styles.back_img} source={require('../image/quizback_img.jpg')}/>
+       <Image style={styles.background_img} source={require('../image/quizback_img.jpg')}/>
        <View style={{flex: 1, flexDirection: 'column'}}>
-        <View style={styles.countview1}></View>
-        <View style={styles.countview2}>
+        <View style={styles.blank_view}></View>
+        <View style={styles.button_view}>
         <Button style={styles.java_butt} title='Start' onPress={pressHandler}/> 
         </View>
         </View>
@@ -24,32 +24,20 @@ return(
 }
 
 const styles = StyleSheet.create({
-    back_img:{
-        width:'100%',
-        height:'45%',
+    background_img:{
+        width: responsiveWidth(100),
+        height: responsiveHeight(20),
         position:'relative',
       },
-      
-    
-      facul:{
-        color:'black',
-        padding:10,
-        // backgroundColor:'#F26B8A',
-        fontSize:20,
-        alignItems: 'center',
-        fontFamily:'sans-serif-light',
-        
-      },
 
-      countview1:{
-        width: '100%',
-        height: 100,
-        
+      blank_view:{
+        width:  responsiveWidth(100),
+        height: responsiveHeight(10),
       },
   
-      countview2:{
-        width: '50%',
-        height: 100,
+      button_view:{
+        width:responsiveWidth(50),
+        height:responsiveHeight(10),
         position:'relative',
         left:'25%',
        },

@@ -1,12 +1,13 @@
-// import React from 'react';
 import { View ,Text,StyleSheet, Button,Alert} from 'react-native';
 import React,{useState} from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
-// import { color } from 'react-native-reanimated';
+import {responsiveHeight,responsiveWidth,responsiveFontSize} from "react-native-responsive-dimensions";
+import colors from "../constants/colors";
+
 export default function Javaquiz(){
 
-  const [details,setDetails]=useState([
+const [details,setDetails]=useState([
     {title:'1.Which of those doesnt have an index based structure?',key:'1',option1:'Map',option2:'Set',option3:'List',answer:3,ans:'List'},
     {title:'2.java.util.Collections is a:',key:'2',option1:'Class',option2:'Interface',option3:'Object',answer:1,ans:'Class'},
     {title:'3.Methods such as reverse, shuffle are offered in:',key:'3',option1:'Object',option2:'Collections',option3:'Apache Commons Collections',answer:2,ans:'Collections'},
@@ -15,23 +16,19 @@ export default function Javaquiz(){
    
   ])
 
-    let count=0;
-    
-  function handleChange(value,data){
-    
+let count=0;
+function handleChange(value,data){
     details.map((item)=>{
     if(item.key===data){
       if(item.answer===value){
-        count++;
-        // console.log(count);
-       
+        count++; 
       }
-     console.log(item.ans);
+
      Alert.alert(
       'Answer',
       ' '+ item.ans,
       [
-        { text: 'OK', onPress: () => console.log('OK Pressed') }
+        { text: 'OK',}
       ],
       { cancelable: false }
     );
@@ -40,10 +37,6 @@ export default function Javaquiz(){
   
   }
 
-// function refreshPage(){
-//   window.location.reload(false);
-//   }
-
   function submit(){
     Alert.alert(
       'Quiz Over!',
@@ -51,13 +44,10 @@ export default function Javaquiz(){
       [
         {
           text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
           style: 'cancel'
         },
         { text: 'OK', onPress: () => count=0,
-         
-         
-      }
+          }
       ],
       { cancelable: false }
     );
@@ -65,10 +55,8 @@ export default function Javaquiz(){
 
 
     return(
-  
-       
-       <View style={{flex: 1, flexDirection: 'column'}}>
-        <View style={styles.para}>
+    <View style={{flex: 1, flexDirection: 'column'}}>
+        <View style={styles.question_view}>
         <ScrollView>
         {details.map((item)=>{
           return(
@@ -89,20 +77,16 @@ export default function Javaquiz(){
               animation={true}
               onPress={(value) =>handleChange(value,item.key)}
               />
-              <View style={styles.space}>
+              <View style={styles.blank_view}>
             <Text style={styles.ans}>{item.ans}</Text>
               </View>
             </View>
           )
         })}
-
-
         <Button title='submit' onPress={submit}/>
         </ScrollView>
-
         </View>
-        
-      </View>
+        </View>
 
     )
 
@@ -114,19 +98,20 @@ export default function Javaquiz(){
 
 const styles = StyleSheet.create({
 
-    para:{
-        width:'100%',
-        height:'100%',
-    },
-    questions:{
-      fontSize:18,
-      fontFamily:'sans-serif-light',
+    question_view:{
+      width:  responsiveWidth(100),
+      height:'100%',
     },
 
-    space:{
+    blank_view:{
       width:'100%',
-      height:20,
-      backgroundColor:'white',
+      height:responsiveHeight(3),
+      backgroundColor: colors.white,
+    },
+
+    questions:{
+      fontSize:responsiveFontSize(2.5),
+      fontFamily:'sans-serif-light',
     },
 
     ans:{

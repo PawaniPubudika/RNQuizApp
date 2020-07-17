@@ -8,6 +8,7 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "description":"React Native Quiz"
+    "description": "React Native Quiz",
+    "githubUrl": "https://github.com/PawaniPubudika/RNQuizApp"
   }
 }

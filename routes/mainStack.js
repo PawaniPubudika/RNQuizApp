@@ -2,7 +2,6 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import Home from '../screens/home';
 import Javaquiz from '../screens/javaquiz';
-// import Cquiz from '../screens/cquiz';
 
 screens={
     Home:{
@@ -12,12 +11,8 @@ screens={
     Javaquiz:{
         screen: Javaquiz
     },
-
-    // C:{
-    //     screen: Cquiz
-    // }
 }
 
-const HomeStack=createStackNavigator(screens);
+const MainStack=createStackNavigator(screens);
 
-export default createAppContainer(HomeStack);
+export default createAppContainer(MainStack);
